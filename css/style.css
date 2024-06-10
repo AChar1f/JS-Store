@@ -15,7 +15,11 @@
 
 /* Body style */
 body{
+    display: grid;
+/* number of rows */
+    grid-template-rows: auto minmax(100%, 100dvh) auto;
     background-color: var(--primary);
+    font-family: "Frank Ruhl Libre, Roboto Condensed, Roboto, sans-serif";
 }
 
 /* Logo style */
@@ -40,4 +44,12 @@ img[alt='logo'] {
     &:active{
         color: var(--quad);
     }
+}
+/* Text-alignmen */
+:is(h1,footer p) {
+    text-align: center;
+}
+
+footer{
+    border-top:1px #1A120B solid;
 }
