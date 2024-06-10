@@ -5,3 +5,39 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Website Colors*/
+:root{
+    --primary: #a47343;
+    --seconday: #3B2C25;
+    --tertiary: #C38154;
+    --quad: #B8621B;
+}
+
+/* Body style */
+body{
+    background-color: var(--primary);
+}
+
+/* Logo style */
+img[alt='logo'] {
+    aspect-ratio: 1 / 1;
+    width: 100px;
+}
+
+/* Navbar Style */
+.navbar{
+    background-color: var(--seconday);
+}
+
+/* nav-links */
+.nav-link {
+    color: whitesmoke;
+    
+    &:hover {
+        color: var(--tertiary); 
+    }
+
+    &:active{
+        color: var(--quad);
+    }
+}
