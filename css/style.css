@@ -64,9 +64,6 @@ img[alt='logo'] {
     font-style: italic;
 }
 
-.orderButton {
-    
-}
 
 /* Text-alignmen */
 :is(h1,footer p) {
