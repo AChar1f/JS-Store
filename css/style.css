@@ -20,6 +20,7 @@ body{
     grid-template-rows: auto minmax(100%, 100dvh) auto;
     background-color: var(--primary);
     font-family: "Frank Ruhl Libre, Roboto Condensed, Roboto, sans-serif";
+    color: white;
 }
 
 /* Logo style */
@@ -45,6 +46,28 @@ img[alt='logo'] {
         color: var(--quad);
     }
 }
+
+/* landing */
+.landing {
+    height: auto;
+    background-image: url(https://achar1f.github.io/projectimages/kafenioimages/bg-5.png);
+    background-repeat: none;
+    background-size: cover;
+    background-position:center;
+    filter: brightness(50%);
+}
+
+/* Landing Title */
+.landing-title {
+    margin-top: 170px;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.orderButton {
+    
+}
+
 /* Text-alignmen */
 :is(h1,footer p) {
     text-align: center;
@@ -52,4 +75,14 @@ img[alt='logo'] {
 
 footer{
     border-top:1px #1A120B solid;
+}
+
+/* Social Icons */
+.bi {
+    color: var(--seconday);
+    align-self: center;
+    padding: 20px;
+}
+a {
+    text-decoration: none;
 }

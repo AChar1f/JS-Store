@@ -1,2 +1,2 @@
-//Current Year
+//Footer: Current Year
 document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()
