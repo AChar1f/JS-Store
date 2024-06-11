@@ -32,7 +32,11 @@
               <a class="nav-link" aria-current="page" href="../index.html">Home</a>
               <a class="nav-link" href="./pages/about.html">About</a>
               <a class="nav-link" href="./pages/product.html">Menu</a>
-              <a class="nav-link" href="./pages/checkout.html">Checkout</a>
+              <a class="nav-link" href="./pages/checkout.html">Checkout
+                <span class="badge rounded-pill" counter>
+                    0
+                </span>
+              </a>
               <a class="nav-link" href="./pages/contact.html">Contact</a>
               <a class="nav-link" href="./pages/admin.html">Admin</a>
             </div>
@@ -40,13 +44,28 @@
         </div>
       </nav>
 
-    <main class="container-fluid landing">
-        <div class="row cafe-bgimg">
-            <h1 class="landing-title">
+    <main>
+        <section class="container-fluid landing">
+        <div class="row cafeimg">
+        </div>
+        <div class="row">
+            <h1 class="display-2 landing-title" id="greeting">
                 WELCOME TO OUR KAFENIO
             </h1>
         </div>
-    </main>
+        <div class="row">
+            <div class="buttonContainer g-4 col-12 d-flex justify-content-center">
+                <a href="./pages/product.html">
+                <button class="button">
+                    Buy Now
+                </button>                  
+            </div>
+            </a></div>
+        </section>
+        </main>
+    <div class="row justify-content-evenly my-2 mx-2" recentProducts>
+        <h2>Daily Recommendations:</h2>
+    </div>
     <footer class="container-fluid">
         <div class="row">
             <p class="lead">Kafenio Copyright &copy;
