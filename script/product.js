@@ -9,6 +9,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Beverages",
             description: "Special Houseblend of Straight black Coffee.",
             amount: 25,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/black-coffee.jpg" 
         },
         {
@@ -17,6 +18,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Beverages",
             description: "Our special blend crafted specifically for Cappucino.",
             amount: 28,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/red-cappucino.jpg"
         },
         {
@@ -25,6 +27,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Beverages",
             description: "Single Shot of our special homeblend espresso.",
             amount: 10,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/single-expresso.jpg" 
         },
         {
@@ -33,6 +36,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Beverages",
             description: "Double shot of our special homeblend esspresso.",
             amount: 18,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/double-expresso.jpg" 
         },
         {
@@ -41,6 +45,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Beverages",
             description: "Rich and Creamy Hot Chocolate Topped with Cream.",
             amount: 45,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/hot-chocolate.jpg" 
         },
         {
@@ -49,6 +54,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Beverages",
             description: "Shake with chocolate, cream and marshmallows.",
             amount: 40,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/Chocolate-milkshake.jpg" 
         },
         {
@@ -57,6 +63,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Muffin",
             description: "Our freshly homemade blueberry muffins.",
             amount: 20,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/BlueberryMuffin.jpeg" 
         },
         {
@@ -65,6 +72,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Mufffin",
             description: "Our homemade muffin filled with chocolate chips.",
             amount: 20,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/choc-chip-muffin.jpg" 
         },
         {
@@ -73,6 +81,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Muffin",
             description: "Our homemade chocolate muffins filled with chocolate chips.",
             amount: 25,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/double-choc-muffin.jpg" 
         },
         {
@@ -81,6 +90,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Muffin",
             description: "Our homemade red velvet muffin topped with frosting.",
             amount: 20,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/red-velvet-muffin.jpg" 
         },
         {
@@ -89,6 +99,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Muffin",
             description: "Our homemade classic soft and airy vanilla muffin.",
             amount: 20,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/vanilla muffins.jpg" 
         },
         {
@@ -97,6 +108,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Sandwich",
             description: "Gourmet Tuna Sandwich garnished with greens of choice.",
             amount: 35,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/tunamelt-127584-1.jpg" 
         },
         {
@@ -105,6 +117,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Sandwich",
             description: "Our homestyle scrambled eggs topped with avo slices.",
             amount: 35,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/egg-and-avo.jpg" 
         },
         {
@@ -113,6 +126,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Sandwich",
             description: "Our homestyle scrambled eggs with salad on jumbo slices of bread.",
             amount: 45,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/LH-Egg-Salad-fwbt-superJumbo.jpg" 
         },
         {
@@ -121,6 +135,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Sandwich",
             description: "Our homestyle scrambled eggs with salad.",
             amount: 30,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/egg_salad_sandwich-1-5.jpg" 
         },
         {
@@ -129,6 +144,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Sandwich",
             description: "Sandwich packed with highest quality of cheese and greens.",
             amount: 60,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/Gourmet-Cheese-Veggie-Sandwich.jpg" 
         },
         {
@@ -136,7 +152,8 @@ let products = JSON.parse(localStorage.getItem('products'))
             productName: "Chicken Sub",
             category: "Sandwich",
             description: "Classic chicken sub made with our special blend of herbs and spices.",
-            amount:  50 ,
+            amount:  50,
+            quantity:1 ,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/Chicken-Sub.jpeg" 
         },
         {
@@ -145,6 +162,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Wrap",
             description: "Classic Chicken Wrap garnished salad.",
             amount: 65,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/chicken-wrap.jpg" 
         },
         {
@@ -153,6 +171,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Wrap",
             description: "Classic Steak Wrap filled topped with cheese.",
             amount: 80,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/steak-wrap.jpg" 
         },
         {
@@ -161,6 +180,7 @@ let products = JSON.parse(localStorage.getItem('products'))
             category: "Wrap",
             description: "Healthy choice of vegetables stuffed in a wrap.",
             amount: 40,
+            quantity:1,
             img_url: "https://achar1f.github.io/projectimages/kafenioimages/veggie-wrap.jpg" 
         },
     ]
@@ -244,13 +264,20 @@ sortingByAmount.addEventListener('click', () => {
 
 // Add to cart
 function addToCart(product) {
-    try {
-        checkoutItems.push(product)
-        localStorage.setItem('checkout', JSON.stringify(checkoutItems))
-        document.querySelector('[counter]').textContent = checkoutItems.length || 0
-    } catch (e) {
-        alert("Unable to add to cart")
-    }
+    // try {
+        let quantity = checkoutItems.findIndex(item => item.id == product.id) 
+        if (quantity == -1){
+            checkoutItems.push(product)
+            localStorage.setItem('checkout', JSON.stringify(checkoutItems))
+            document.querySelector('[counter]').textContent = checkoutItems.length || 0
+        } else{
+            checkoutItems[quantity].quantity++
+            localStorage.setItem('checkout', JSON.stringify(checkoutItems))
+        }
+        
+    // } catch (e) {
+    //     alert("Unable to add to cart")
+    // }
 }
 window.onload = () => {
     document.querySelector('[counter]').textContent = checkoutItems.length || 0
