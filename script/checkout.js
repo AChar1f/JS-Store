@@ -7,11 +7,13 @@ function cartDisplay(){
     let container = document.querySelector('[data-container]')
     checkoutItems.forEach(product => {
         container.innerHTML += `
-            <div class="col-2">${product.productName}</div>
-            <div class="col-2">${product.category}</div>
-            <div class="col-2">${product.amount}</div>
-            <div class="col-4">${product.id}</div>
-            <div class="col-2">${product.amount * product.id}</div>      
+             <tr>
+                <td>${product.productName}</td>
+                <td>${product.category}</td>
+                <td>${product.amount}</td>
+                <td>${product.quantity}</td>
+                <td >R${product.amount * product.id}</td>
+            </tr>      
         `
     })
 }

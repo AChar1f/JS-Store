@@ -374,27 +374,13 @@ a {
             }
         }
     }
-    
-    /* checkout table */
-    /* table {
-        border-collapse: collapse;
-        border: 2px solid red;
-        margin-top: 10px;
-        width: 100%;
-        
-
-
-        & th, td{
-            
-            background-color: red;
-            column-width: 10rem;
-        }
-        
-        & :is(th, tr, td){
-            text-align: center;
-            border: 2px solid;
-        }
-    } */
+ 
+    /*all imgs  */
 img{
    width: 75px;
 }
+
+.form-control{
+  height:auto !important;
+}
+
