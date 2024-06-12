@@ -170,7 +170,7 @@ let products = JSON.parse(localStorage.getItem('products'))
 function recentProducts() {
     try{
         let arrSize = products.length 
-    let latestProducts = products.reverse().slice(0, arrSize >> 1)
+    let latestProducts = products.reverse().slice(0, arrSize >> 2 )
     latestProducts.forEach(product => {
         
         wrapper.innerHTML += `
