@@ -220,6 +220,7 @@ searchProduct.addEventListener('keyup', () => {
     }
 })
 
+
 // Sorting by Price
 let isToggle = false
 let sortingByAmount = document.querySelector('[sorting]')
@@ -228,11 +229,11 @@ sortingByAmount.addEventListener('click', () => {
         if (!products) throw new Error('Please try again later')
         if (!isToggle) {
             products.sort((a, b) => b.amount - a.amount)
-            sortingByAmount.textContent = 'Sorted by highest amount'
+            sortingByAmount.textContent = ' Highest amount'
             isToggle = true
         } else {
             products.sort((a, b) => a.amount - b.amount)
-            sortingByAmount.textContent = 'Sorted by lowest amount'
+            sortingByAmount.textContent = 'Lowest amount'
             isToggle = false
         }
         displayMenu(products)
@@ -248,12 +249,16 @@ function addToCart(product) {
         localStorage.setItem('checkout', JSON.stringify(checkoutItems))
         document.querySelector('[counter]').textContent = checkoutItems.length || 0
     } catch (e) {
-        alert("Unable to add to plate")
+        alert("Unable to add to cart")
     }
 }
 window.onload = () => {
     document.querySelector('[counter]').textContent = checkoutItems.length || 0
 }
+
+// groupID
+
+
 
 //Footer: Current Year
 document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()
