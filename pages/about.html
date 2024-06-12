@@ -78,7 +78,12 @@
     <!-- My Script -->
 
     <script>
-        document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()
+      let checkoutItems = JSON.parse(localStorage.getItem('checkout'))
+      ? JSON.parse(localStorage.getItem('checkout'))
+      : []
+      document.querySelector('[counter]').textContent = checkoutItems.length || 0
+
+      document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()
     </script>
 </body>
 </html>
