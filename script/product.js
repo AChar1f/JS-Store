@@ -265,7 +265,7 @@ sortingByAmount.addEventListener('click', () => {
 
 // Add to cart
 function addToCart(product) {
-    // try {
+    try {
         let quantity = checkoutItems.findIndex(item => item.id == product.id) 
         if (quantity == -1){
             checkoutItems.push(product)
@@ -276,9 +276,9 @@ function addToCart(product) {
             localStorage.setItem('checkout', JSON.stringify(checkoutItems))
         }
         
-//     } catch (e) {
-//         alert("Unable to add to cart")
-//     }
+    } catch (e) {
+        alert("Unable to add to cart")
+    }
 }
 window.onload = () => {
     document.querySelector('[counter]').textContent = checkoutItems.length || 0
