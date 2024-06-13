@@ -191,6 +191,7 @@ let checkoutItems = JSON.parse(localStorage.getItem('checkout'))
     ? JSON.parse(localStorage.getItem('checkout'))
     : []
 
+// displays the products in cards
 function displayMenu(args){
     content.innerHTML = ""
     try{
@@ -282,10 +283,6 @@ function addToCart(product) {
 window.onload = () => {
     document.querySelector('[counter]').textContent = checkoutItems.length || 0
 }
-
-// groupID
-
-
 
 //Footer: Current Year
 document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()

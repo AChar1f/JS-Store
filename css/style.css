@@ -383,3 +383,12 @@ img{
 .form-control{
   height: auto;
 }
+
+/* table style */
+th, tr, td {
+  text-align: center;
+}
+
+tfoot {
+  font-weight: 800;
+}
