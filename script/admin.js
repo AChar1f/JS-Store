@@ -1,3 +1,8 @@
+let checkoutItems = JSON.parse(localStorage.getItem('checkout'))
+? JSON.parse(localStorage.getItem('checkout'))
+: []
+document.querySelector('[counter]').textContent = checkoutItems.length || 0
+
 let wrap = document.querySelector('[displayItems]')
 let products = JSON.parse(localStorage.getItem('products'))
  

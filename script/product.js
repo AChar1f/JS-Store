@@ -211,9 +211,9 @@ function displayMenu(args){
         })
     } catch (e) {
         content.innerHTML += `
-       <div class="loader">Loading
-        <span></span>
-        </div>
+            <div class="loader">Loading
+            <span></span>
+            </div>
         `
         setTimeout ( () => {
             location.reload()
@@ -275,9 +275,9 @@ function addToCart(product) {
             localStorage.setItem('checkout', JSON.stringify(checkoutItems))
         }
         
-    // } catch (e) {
-    //     alert("Unable to add to cart")
-    // }
+//     } catch (e) {
+//         alert("Unable to add to cart")
+//     }
 }
 window.onload = () => {
     document.querySelector('[counter]').textContent = checkoutItems.length || 0

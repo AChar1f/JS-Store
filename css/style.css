@@ -381,6 +381,5 @@ img{
 }
 
 .form-control{
-  height:auto !important;
+  height: auto;
 }
-
