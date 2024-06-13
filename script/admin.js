@@ -17,8 +17,8 @@ function displayItems(args){
                 <td><img src="${product.img_url}" loading="lazy"></td>
                 <td>${product.category}</td>
                 <td>${product.amount}</td>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
+                <td><button class="menuButton">Edit</button></td>
+                <td><button class="menuButton">Delete</button></td>
             </tr> 
             `
         })
