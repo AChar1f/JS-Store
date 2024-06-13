@@ -48,6 +48,50 @@
       <section class="page">
         <h1 class="adminTitle pt-5">Admin</h1>
         <div>
+          <!-- Add New Product Button for Modal -->
+          <button type="button" class="btn btnAddNewProducts" id="saveProduct" data-bs-toggle="modal" data-bs-target="#addProductModal">
+            Add New Product
+          </button>
+          <!-- Add New Product Modal Content -->
+          <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header bg-dark">
+                  <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-dark">
+                  <form id="addProductForm">
+                    <div class="mb-3">
+                      <label for="productName" class="form-label">Product Name</label>
+                      <input type="text" class="form-control" id="productName">
+                    </div>
+                    <div class="mb-3">
+                      <label for="productName" class="form-label">Category</label>
+                      <input type="text" class="form-control" id="category">
+                    </div>
+                    <div class="mb-3">
+                      <label for="productDetails" class="form-label">Description</label>
+                      <input type="text" class="form-control" id="description">
+                    </div>
+                    <div class="mb-3">
+                      <label for="productAmount" class="form-label">Price</label>
+                      <input type="number" class="form-control" id="price">
+                    </div>
+                    <div class="mb-3">
+                      <label for="productImage" class="form-label">Image URL</label>
+                      <input type="text" class="form-control" id="productImage">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer bg-dark">
+                  <button type="button" class="btn btn-primary" id="saveNewProduct">Add Item</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
           <div class="table-responsive-lg table-responsive-md table-responsive-sm">
             <table class="table table-warning">
               <thead>
@@ -60,7 +104,7 @@
                   <th>Remove Item</th>
                 </tr>
               </thead>
-              <tbody displayItems>
+              <tbody displayMenu>
 
               </tbody>
             </table>
