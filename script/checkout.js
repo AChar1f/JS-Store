@@ -51,6 +51,36 @@ function calculateTotal() {
 let total = ("R"+calculateTotal())
 document.querySelector('[total]').textContent = total
 
+// purchase button
+document.querySelector('#purchase').addEventListener('click', function() {
+    localStorage.removeItem('checkout');
+    document.querySelector('[counter]').textContent = 0;
+    
+    // Display a confirmation message
+    Swal.fire({
+        title: 'Thank You for your patronage!',
+        text: 'Enjoy your purchase!',
+        icon: 'success',
+        confirmButtonText: 'Confirm'
+    })
+    setTimeout ( () => {
+        location.reload()
+    },
+        2000
+    )
+})
+
+// clear cart button
+document.querySelector('#clearCart').addEventListener('click', function() {
+    localStorage.removeItem('checkout');
+    document.querySelector('[counter]').textContent = 0;
+    
+    setTimeout ( () => {
+        location.reload()
+    },  
+        500
+    )
+})
 
 //Current Year
 document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()
