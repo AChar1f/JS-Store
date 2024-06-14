@@ -193,11 +193,156 @@ let products = JSON.parse(localStorage.getItem('products'))
  
 // displayItems()
 function displayItems(args){
-    wrap.innerHTML = ""
-    try{
+    wrap.innerHTML = ''
+    try {
         args.forEach(product => {
-            wrap.innerHTML +=`
+            wrap.innerHTML += `
             <tr>
+                <td>${product.productName}</td>
+                <td><img src="${product.img_url}" loading="lazy"></td>
+                <td>${product.category}</td>
+                <td>${"R"+product.amount}</td>
+                <td>
+                    <button class="menuButton" data-bs-toggle="modal" data-bs-target="#updateModal${product.id}">Edit</button>
+                    <div class="modal fade" id="updateModal${product.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header bg-dark">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Product</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body bg-dark">
+                                    <form>
+                                        <div class="container">
+                                            <input class="form-control m-2" type="text" placeholder="Enter a Product Name" value="${product.productName}" name="admin-name" id="admin-name${product.id}" required>
+                                            <input class="form-control m-2" type="text" placeholder="Enter a Product Name" value="${product.category}" name="admin-name" id="admin-category${product.id}" required>
+                                            <input class="form-control m-2" type="text" placeholder="Enter Image URL" value="${product.img_url}" name="admin-image" id="admin-image${product.id}" required>
+                                            <textarea class="form-control m-2" placeholder="Enter your Product details" required name="admin-details" id="admin-details${product.id}">${product.description}</textarea>
+                                            <input class="form-control m-2" type="number" placeholder="Enter the Product Amount" value="${product.amount}" name="admin-amount" id="admin-amount${product.id}" required>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer bg-dark">
+                                    <button type="button" class="btn" onclick="UpdateProduct(${JSON.stringify(product)})">Save changes</button>
+                                    <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><button class="menuButton" onclick="deleteProduct('${product.id}')">Delete</button></td>
+            </tr>`
+        });
+    } catch (e) {
+        wrap.innerHTML += `
+        <div class="loader">Loading
+            <span></span>
+        </div>`
+        setTimeout(() => {
+            location.reload()
+        }, 3000)
+    }
+}
+
+displayItems(products)
+
+
+// delete
+function deleteProduct(productId) {
+    // Retrieve existing products from local storage
+    let products = JSON.parse(localStorage.getItem('products'))
+
+    // Find the index of the product
+    const index = products.findIndex(product => product.id === productId)
+
+    // If the product is found, remove it using splice
+    if (index !== -1) {
+        products.splice(index, 1)
+
+        // Update the local storage
+        localStorage.setItem('products', JSON.stringify(products))
+
+        displayItems(products)
+    }
+}
+
+
+// Delete product
+// function deleteProduct(product){
+//     try{
+//         let index = displayItems.findIndex(item => item.id == product.id)
+//         displayItems.splice(index, 1)
+//         localStorage.setItem('products', JSON.stringify(displayItems))
+//         displayMenu(products)
+//         location.reload()
+//         // retrieve the index of an object
+//         // make use of splice(index, 1)
+//         // Save the array content to the local storage
+//     }catch(e){
+//         alert("Unable to delete")
+//     }
+// }
+
+
+
+// Function to add new a product
+// Add event listener to the "Add Item" button inside the modal
+document.getElementById('saveNewProduct').addEventListener('click', function() {
+    // Retrieve values entered by the user
+    const productName = document.getElementById('productName').value
+    const category = document.getElementById('category').value
+    const description = document.getElementById('description').value
+    const price = document.getElementById('price').value
+    const productImage = document.getElementById('productImage').value
+
+    // Create a new product object
+    const newProduct = {
+        id: productIdMaker(), 
+        productName: productName,
+        category: category,
+        description: description,
+        amount: price,
+        img_url: productImage
+    };
+
+    // Push the new product object to the existing products array
+    products.push(newProduct)
+
+    Swal.fire({
+        title: 'New product added!',
+        icon: 'success',
+        confirmButtonText: 'Confirm'
+    })
+
+    // Update the products array in local storage
+    localStorage.setItem('products', JSON.stringify(products))
+    setTimeout ( () => {
+        location.reload()
+    },
+        1500
+    )
+});
+
+// Function to make an id based off the last highest value id in the array.
+function productIdMaker() {
+     // Find the maximum ID currently in the products array then incruments it by 1.
+     const maxId = products.reduce((max, product) => Math.max(max, parseInt(product.id)), 0)
+     const newId = maxId + 1
+     return newId.toString()
+}
+
+
+//  sort by category
+ document.addEventListener('DOMContentLoaded', function () {
+        const categoriesSelect = document.getElementById('categoriesP')
+        const container = document.querySelector('[displayMenu]')
+    
+        function filterProducts(category) {
+            container.innerHTML = '' 
+                products.forEach((product) => {
+                    if (product.category === category || category === 'All') {
+                        container.innerHTML += `
+                         <tr>
                 <td>${product.productName}</td>
                 <td><img src="${product.img_url}" loading="lazy"></td>
                 <td>${product.category}</td>
@@ -223,8 +368,8 @@ function displayItems(args){
                       </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" onclick="UpdateProduct(${JSON.stringify(products)})">Save changes</button>
+                        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn" onclick="UpdateProduct(${JSON.stringify(products)})">Save changes</button>
                     </div>
                     </div>
                 </div>
@@ -233,126 +378,20 @@ function displayItems(args){
                 </td>
                 <td><button class="menuButton" onclick="deleteProduct(${JSON.stringify(product)})">Delete</button></td>
             </tr> 
-            `
-        })
-    } catch (e) {
-        wrap.innerHTML += `
-       <div class="loader">Loading
-        <span></span>
-        </div>
-        `
-        setTimeout ( () => {
-            location.reload()
-        },
-            3000
-        )
-    }
-}
-
-displayItems(products)
-
-// update product
-// function UpdateProduct(product, index){
-//     try{
-//         product.productName = document.querySelector(`#admin-name${product.id}`).value;
-//         product.category = document.querySelector(`#admin-category${product.id}`).value;
-//         product.description = document.querySelector(`#admin-details${product.id}`).value;
-//         product.amount = document.querySelector(`#admin-amount${product.id}`).value;
-//         product.img_url = document.querySelector(`#admin-image${product.id}`).value;
+                        `
+                    }
+                })
         
-//         products[index] = Object.assign({}, product);
-//         localStorage.setItem('products',JSON.stringify(products));
-//         displayMenu(products);
-//         location.reload();
-//     } catch(e) {
-//         alert('Unable to Edit the Products');
-//     }
-// }
-
-function UpdateProduct(product, index){
-    try {
-        // Update the product with new values
-        product.productName = document.querySelector(`#admin-name${product.id}`).value;
-        product.category = document.querySelector(`#admin-category${product.id}`).value;
-        product.description = document.querySelector(`#admin-details${product.id}`).value;
-        product.amount = document.querySelector(`#admin-amount${product.id}`).value;
-        product.img_url = document.querySelector(`#admin-image${product.id}`).value;
-
-        // Update the product in the products array
-        products[index] = Object.assign({}, product);
-
-        // Update the products array in local storage
-        localStorage.setItem('products', JSON.stringify(products));
-
-        // Reload the display of items
-        displayItems(products);
-
-        // Close the modal
-        let modalId = `#updateModal${product.id}`;
-        $(modalId).modal('hide');
-    } catch(e) {
-        alert('Unable to Edit the Products');
-    }
-}
-
-
-
-// Delete product
-// function deleteProduct(product){
-//     try{
-//         let index = displayItems.findIndex(item => item.id == product.id)
-//         displayItems.splice(index, 1)
-//         localStorage.setItem('products', JSON.stringify(displayItems))
-//         displayMenu(products)
-//         location.reload()
-//         // retrieve the index of an object
-//         // make use of splice(index, 1)
-//         // Save the array content to the local storage
-//     }catch(e){
-//         alert("Unable to delete")
-//     }
-// }
-
-// Function to add new a product
-// Add event listener to the "Add Item" button inside the modal
-document.getElementById('saveNewProduct').addEventListener('click', function() {
-    // Retrieve values entered by the user
-    const productName = document.getElementById('productName').value;
-    const category = document.getElementById('category').value;
-    const description = document.getElementById('description').value;
-    const price = document.getElementById('price').value;
-    const productImage = document.getElementById('productImage').value;
-
-    // Create a new product object
-    const newProduct = {
-        id: productIdMaker(), // Assuming you have a function to generate a unique product ID
-        productName: productName,
-        category: category,
-        description: description,
-        amount: price,
-        img_url: productImage
-    };
-
-    // Push the new product object to the existing products array
-    products.push(newProduct);
-
-    // Update the products array in local storage
-    localStorage.setItem('products', JSON.stringify(products));
-    setTimeout ( () => {
-        location.reload()
-    },
-        1000
-    )
-});
-
-// Function to make an 
-function productIdMaker() {
-     // Find the maximum ID currently in the products array
-     const maxId = products.reduce((max, product) => Math.max(max, parseFloat(product.id)), 0);
-     const newId = maxId + 1;
-     return newId.toString();
-}
-
+    
+        }
+    
+    
+        categoriesSelect.addEventListener('change', function () {
+            const selectedCategory = this.value
+            filterProducts(selectedCategory)
+        })
+    })
+ 
 
 
 //Current Year

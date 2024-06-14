@@ -54,6 +54,16 @@
   <main class="container-fluid">
     <section class="page">
       <h1 class="adminTitle pt-5">Admin</h1>
+      <div class="row">
+        <span><label>Search by category</label>
+          <select id="categoriesP" >
+            <option selected>All</option>
+            <option>Beverages</option>
+            <option>Muffin</option>
+              <option>Sandwich</option>
+              <option>Wrap</option>
+          </select></span>
+      </div>
       <div>
         <!-- Add New Product Button for Modal -->
         <button type="button" class="btn btnAddNewProducts" id="saveProduct" data-bs-toggle="modal"
@@ -94,8 +104,8 @@
                 </form>
               </div>
               <div class="modal-footer bg-dark">
-                <button type="button" class="btn btn-primary" id="saveNewProduct">Add Item</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn" id="saveNewProduct">Add Item</button>
+                <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
@@ -109,7 +119,7 @@
               <th>Image</th>
               <th>Category</th>
               <th>Price</th>
-              <th>Edit Item</th>
+              <th>Update Item</th>
               <th>Remove Item</th>
             </tr>
           </thead>
@@ -132,8 +142,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
   </script>
+  <!-- sweet alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- My Script -->
-
   <script src="../script/admin.js"></script>
 </body>
 
