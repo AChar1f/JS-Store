@@ -280,6 +280,7 @@ function addToCart(product) {
         alert("Unable to add to cart")
     }
 }
+// counter display
 window.onload = () => {
     document.querySelector('[counter]').textContent = checkoutItems.length || 0
 }
