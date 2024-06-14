@@ -223,7 +223,7 @@ function displayItems(args){
                                     </form>
                                 </div>
                                 <div class="modal-footer bg-dark">
-                                    <button type="button" class="btn" onclick="UpdateProduct(${JSON.stringify(product)})">Save changes</button>
+                                    <button type="button" class="btn" onclick="UpdateProduct(${product.id})">Save changes</button>
                                     <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
@@ -246,14 +246,49 @@ function displayItems(args){
 
 displayItems(products)
 
+function UpdateProduct(productId) {
+    const productName = document.getElementById(`admin-name${productId}`).value
+    const category = document.getElementById(`admin-category${productId}`).value
+    const img_url = document.getElementById(`admin-image${productId}`).value
+    const description = document.getElementById(`admin-details${productId}`).value
+    const amount = document.getElementById(`admin-amount${productId}`).value
 
-// delete
+    let products = JSON.parse(localStorage.getItem('products'))
+    const index = products.findIndex(product => product.id == productId)
+console.log(index);
+    if (index != -1) {
+        console.log('hehehe');
+        products[index] = {
+            id: productId,
+            productName: productName,
+            category: category,
+            img_url: img_url,
+            description: description,
+            amount: amount
+        }
+        // products[index].productName = productName
+        localStorage.setItem('products', JSON.stringify(products))
+        displayItems(products)
+        location.reload()
+    } else {
+        alert = "Something went wrong"
+        setTimeout(() => {
+            location.reload()
+        })
+    }
+}
+
+
+// delete function needs to:
+// retrieve the index of an object
+// make use of splice(index, 1)
+// Save the array content to the local storage
 function deleteProduct(productId) {
     // Retrieve existing products from local storage
     let products = JSON.parse(localStorage.getItem('products'))
 
     // Find the index of the product
-    const index = products.findIndex(product => product.id === productId)
+    const index = products.findIndex(product => product.id == productId)
 
     // If the product is found, remove it using splice
     if (index !== -1) {
@@ -266,25 +301,6 @@ function deleteProduct(productId) {
     }
 }
 
-
-// Delete product
-// function deleteProduct(product){
-//     try{
-//         let index = displayItems.findIndex(item => item.id == product.id)
-//         displayItems.splice(index, 1)
-//         localStorage.setItem('products', JSON.stringify(displayItems))
-//         displayMenu(products)
-//         location.reload()
-//         // retrieve the index of an object
-//         // make use of splice(index, 1)
-//         // Save the array content to the local storage
-//     }catch(e){
-//         alert("Unable to delete")
-//     }
-// }
-
-
-
 // Function to add new a product
 // Add event listener to the "Add Item" button inside the modal
 document.getElementById('saveNewProduct').addEventListener('click', function() {
@@ -295,18 +311,16 @@ document.getElementById('saveNewProduct').addEventListener('click', function() {
     const price = document.getElementById('price').value
     const productImage = document.getElementById('productImage').value
 
-    // Create a new product object
-    const newProduct = {
+    const productNew = {
         id: productIdMaker(), 
         productName: productName,
         category: category,
         description: description,
         amount: price,
         img_url: productImage
-    };
+    }
 
-    // Push the new product object to the existing products array
-    products.push(newProduct)
+    products.push(productNew)
 
     Swal.fire({
         title: 'New product added!',
@@ -314,14 +328,13 @@ document.getElementById('saveNewProduct').addEventListener('click', function() {
         confirmButtonText: 'Confirm'
     })
 
-    // Update the products array in local storage
     localStorage.setItem('products', JSON.stringify(products))
     setTimeout ( () => {
         location.reload()
     },
         1500
     )
-});
+})
 
 // Function to make an id based off the last highest value id in the array.
 function productIdMaker() {
@@ -367,16 +380,15 @@ function productIdMaker() {
                       </div>
                       </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn" onclick="UpdateProduct(${JSON.stringify(products)})">Save changes</button>
+                    <div class="modal-footer bg-dark">
+                                    <button type="button" class="btn" onclick="UpdateProduct(${JSON.stringify(product)})">Save changes</button>
+                                    <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
-                </div>
-                
                 </td>
-                <td><button class="menuButton" onclick="deleteProduct(${JSON.stringify(product)})">Delete</button></td>
+                <td><button class="menuButton" onclick="deleteProduct('${product.id}')">Delete</button></td>
             </tr> 
                         `
                     }

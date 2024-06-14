@@ -193,7 +193,7 @@ let checkoutItems = JSON.parse(localStorage.getItem('checkout'))
 
 // displays the products in cards
 function displayMenu(args){
-    content.innerHTML = ""
+    content.innerHTML = ''
     try{
         args.forEach(product => {
             content.innerHTML +=`
@@ -287,11 +287,11 @@ window.onload = () => {
 
 
  document.addEventListener('DOMContentLoaded', function () {
-        const categoriesSelect = document.getElementById('categoriesP');
-        const container = document.querySelector('[displayMenu]');
+        const categoriesSelect = document.getElementById('categoriesP')
+        const container = document.querySelector('[displayMenu]')
     
         function filterProducts(category) {
-            container.innerHTML = ''; 
+            container.innerHTML = '' 
                 products.forEach((product) => {
                     if (product.category === category || category === 'All') {
                         container.innerHTML += `
@@ -308,15 +308,15 @@ window.onload = () => {
             </div>
                         `
                     }
-                });
+                })
         
     
         }
     
     
         categoriesSelect.addEventListener('change', function () {
-            const selectedCategory = this.value;
-            filterProducts(selectedCategory);
+            const selectedCategory = this.value
+            filterProducts(selectedCategory)
         })
     })
 
