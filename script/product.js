@@ -284,5 +284,41 @@ window.onload = () => {
     document.querySelector('[counter]').textContent = checkoutItems.length || 0
 }
 
+
+ document.addEventListener('DOMContentLoaded', function () {
+        const categoriesSelect = document.getElementById('categoriesP');
+        const container = document.querySelector('[displayMenu]');
+    
+        function filterProducts(category) {
+            container.innerHTML = ''; 
+                products.forEach((product) => {
+                    if (product.category === category || category === 'All') {
+                        container.innerHTML += `
+                            <div class="card" style="width: 18rem;">
+                <img src="${product.img_url}" class="card-img-top" alt="${product.productName}" loading="lazy">
+            <div class="card-body">
+                <h5 class="card-title">
+                ${product.productName}
+                </h5>
+                <p class="card-text">${product.description}</p>
+                <p class="card-text"><span class="price">Price:</span>R${product.amount}</p>
+                 <button type='button' class="btn" onclick='addToCart(${JSON.stringify(product)})'>Add to cart</button>
+            </div>
+            </div>
+                        `
+                    }
+                });
+        
+    
+        }
+    
+    
+        categoriesSelect.addEventListener('change', function () {
+            const selectedCategory = this.value;
+            filterProducts(selectedCategory);
+        })
+    })
+
+
 //Footer: Current Year
 document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()
