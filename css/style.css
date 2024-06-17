@@ -92,6 +92,42 @@ img[alt='logo'] {
     margin: 0;  
 }
 
+@media (max-width: 992px) {
+  .aboutContainer {
+      padding: 20px;
+  }
+  .aboutHeading {
+      font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutHeading {
+      font-size: 2rem;
+  }
+  .aboutContent {
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 670px){
+  .aboutContent {
+    font-size: 0.9rem;
+   }
+}
+
+@media (max-width: 576px) {
+  .aboutContainer {
+      padding: 10px;
+  }
+  .aboutHeading {
+      font-size: 1.8rem;
+  }
+  .aboutContent {
+      font-size: 0.9rem;
+  }
+}
+
 .worktime{
     text-align: center; 
 }
