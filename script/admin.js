@@ -278,16 +278,13 @@ function UpdateProduct(product, index){
         product.amount = document.querySelector(`#admin-amount${product.id}`).value;
         product.img_url = document.querySelector(`#admin-image${product.id}`).value;
 
-        // Update the product in the products array
+
         products[index] = Object.assign({}, product);
 
-        // Update the products array in local storage
         localStorage.setItem('products', JSON.stringify(products));
 
-        // Reload the display of items
         displayItems(products);
 
-        // Close the modal
         let modalId = `#updateModal${product.id}`;
         $(modalId).modal('hide');
     } catch(e) {
@@ -295,7 +292,13 @@ function UpdateProduct(product, index){
     }
 }
 
-
+function deleteProduct(index) {
+    if (confirm("Are you sure you want to delete this product?")) {
+        products.splice(index, 1); // Remove the product at the specified index
+        localStorage.setItem('products', JSON.stringify(products)); // Update local storage
+        displayItems(products); // Refresh the display
+    }
+}
 
 // Delete product
 // function deleteProduct(product){
@@ -314,9 +317,9 @@ function UpdateProduct(product, index){
 // }
 
 // Function to add new a product
-// Add event listener to the "Add Item" button inside the modal
+
 document.getElementById('saveNewProduct').addEventListener('click', function() {
-    // Retrieve values entered by the user
+
     const productName = document.getElementById('productName').value;
     const category = document.getElementById('category').value;
     const description = document.getElementById('description').value;
@@ -325,7 +328,7 @@ document.getElementById('saveNewProduct').addEventListener('click', function() {
 
     // Create a new product object
     const newProduct = {
-        id: productIdMaker(), // Assuming you have a function to generate a unique product ID
+        id: productIdMaker(),
         productName: productName,
         category: category,
         description: description,
@@ -333,10 +336,10 @@ document.getElementById('saveNewProduct').addEventListener('click', function() {
         img_url: productImage
     };
 
-    // Push the new product object to the existing products array
+ 
     products.push(newProduct);
 
-    // Update the products array in local storage
+
     localStorage.setItem('products', JSON.stringify(products));
     setTimeout ( () => {
         location.reload()
@@ -345,15 +348,12 @@ document.getElementById('saveNewProduct').addEventListener('click', function() {
     )
 });
 
-// Function to make an 
+// Function to make an id  based of the highest id value in the products array.
 function productIdMaker() {
-     // Find the maximum ID currently in the products array
      const maxId = products.reduce((max, product) => Math.max(max, parseFloat(product.id)), 0);
      const newId = maxId + 1;
      return newId.toString();
 }
-
-
 
 //Current Year
 document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()
