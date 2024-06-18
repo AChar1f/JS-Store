@@ -106,17 +106,23 @@ img[alt='logo'] {
       font-size: 2rem;
   }
   .aboutContent {
-      font-size: 1rem;
+      font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .aboutContent {
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 670px){
   .aboutContent {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
    }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 590px) {
   .aboutContainer {
       padding: 10px;
   }
@@ -124,9 +130,11 @@ img[alt='logo'] {
       font-size: 1.8rem;
   }
   .aboutContent {
-      font-size: 0.9rem;
+      font-size: 0.75rem;
   }
 }
+
+@media (max-width: 450)
 
 .worktime{
     text-align: center; 
