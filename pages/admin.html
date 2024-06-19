@@ -54,17 +54,17 @@
   <main class="container-fluid">
     <section class="page">
       <h1 class="adminTitle pt-5">Admin</h1>
-      <div class="d-flex justify-lg-content-end justify-content-md-center">
+      <form class="container sortType">
         <span><label>Search by category</label>
-          <select id="categoriesP" >
+          <select id="categoriesP" class="mb-3" >
             <option selected>All</option>
             <option>Beverages</option>
             <option>Muffin</option>
               <option>Sandwich</option>
               <option>Wrap</option>
           </select></span>
-      </div>
-      <div>
+      </form>
+      <div class="d-flex justify-content-center">
         <!-- Add New Product Button for Modal -->
         <button type="button" class="btn btnAddNewProducts" id="saveProduct" data-bs-toggle="modal"
           data-bs-target="#addProductModal">

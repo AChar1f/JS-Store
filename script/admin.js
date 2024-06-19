@@ -212,12 +212,25 @@ function displayItems(args){
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body bg-dark">
-                                    <form>
-                                        <div class="container">
+                                    <form id="adminCRUD ">
+                                        <div class="mb-3">
+                                            <label for="productName" class="form-label">Product Name</label>
                                             <input class="form-control m-2" type="text" placeholder="Enter a Product Name" value="${product.productName}" name="admin-name" id="admin-name${product.id}" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="productName" class="form-label">Category</label>
                                             <input class="form-control m-2" type="text" placeholder="Enter a Product Name" value="${product.category}" name="admin-name" id="admin-category${product.id}" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="productImage" class="form-label">Image URL</label>
                                             <input class="form-control m-2" type="text" placeholder="Enter Image URL" value="${product.img_url}" name="admin-image" id="admin-image${product.id}" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="productDetails" class="form-label">Description</label>
                                             <textarea class="form-control m-2" placeholder="Enter your Product details" required name="admin-details" id="admin-details${product.id}">${product.description}</textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="productAmount" class="form-label">Price</label>
                                             <input class="form-control m-2" type="number" placeholder="Enter the Product Amount" value="${product.amount}" name="admin-amount" id="admin-amount${product.id}" required>
                                         </div>
                                     </form>
@@ -283,6 +296,7 @@ console.log(index);
 // retrieve the index of an object
 // make use of splice(index, 1)
 // Save the array content to the local storage
+
 function deleteProduct(productId) {
     // Retrieve existing products from local storage
     let products = JSON.parse(localStorage.getItem('products'))
