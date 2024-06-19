@@ -47,23 +47,28 @@
             <div class="row">
                 <h2 class="display-2 p-2">Menu</h2>
             </div>
-            <div class="row justify-content-between my-2 d-block d-md-flex p-2 ">
+            <form class="container sortType">
+              <input class="form-control w-25 ms-auto" type="text" placeholder="Item name" searchProduct>
+              <button class="btn w-25" type="button" sorting>Sort</button>
+              <span><label class="w-75 text-50">Search by category</label>
+                <select id="categoriesP" class="mb-3 align-content-center" >
+                  <option selected>All</option>
+                  <option>Beverages</option>
+                  <option>Muffin</option>
+                    <option>Sandwich</option>
+                    <option>Wrap</option>
+                </select></span>
+            </form>
+            <!-- <div class="row justify-content-between my-2 d-block d-md-flex p-2 ">
                 <div class="col-4">
-                    <input class="form-control w-25 ms-auto" type="text" placeholder="Item name" searchProduct>
+                   
                 </div>
                 <div class="col-4">
-                    <button class="btn w-25" type="button" sorting>Sort</button>
+                    
                 </div>
                 <div class="row">
-                  <span><label class="w-75 text-50">Search by category</label>
-                    <select id="categoriesP" >
-                      <option selected>All</option>
-                      <option>Beverages</option>
-                      <option>Muffin</option>
-                        <option>Sandwich</option>
-                        <option>Wrap</option>
-                    </select></span>
-                </div>
+                  
+                </div> -->
             </div>
             <div class="row justify-content-center gap-2 mx-2" displayMenu>
     

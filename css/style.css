@@ -134,10 +134,12 @@ img[alt='logo'] {
   }
 }
 
-@media (max-width: 450)
+@media (max-width: 450){
 
-.worktime{
-    text-align: center; 
+}
+
+.worktime {
+  text-align: center;  
 }
 
 /* Text-alignmen */
@@ -435,4 +437,26 @@ th, tr, td {
 
 tfoot {
   font-weight: 800;
+}
+
+/* form */
+.sortType {
+  display: grid;
+  margin-inline: auto;
+  gap: .5rem;
+  justify-content: center;
+  text-align: center;
+  & input{
+    min-width: 15rem;
+    text-align: center;
+  }
+  & button{
+    min-width: 15rem;
+  }
+  & select{
+    border-radius: 90px;
+    text-align: center;
+    background-color:  #B8621B;
+    color: #FAEEE0;
+  }
 }
